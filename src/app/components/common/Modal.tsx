@@ -15,10 +15,10 @@ import axios from "axios";
 
 interface Props {
   homeData: any;
-  onUpdate: any;
+  setHomeData: any;
 }
 
-export const DialogComp = ({ homeData, onUpdate }: Props) => {
+export const DialogComp = ({ homeData, setHomeData }: Props) => {
   const [modal, setModal] = useState(false);
 
   const [mainheading, setMainheading] = useState({
@@ -86,8 +86,6 @@ export const DialogComp = ({ homeData, onUpdate }: Props) => {
     text: homeData?.formData?.formButton?.text || "",
   });
 
-  //   const handleSaveChanges = async () => {
-
   const handleSaveChanges = async () => {
     const updatedData = {
       heading: { id: mainheading.id, text: mainheading.text },
@@ -119,7 +117,7 @@ export const DialogComp = ({ homeData, onUpdate }: Props) => {
       );
       if(response.status === 200) {
         setModal(false)
-        onUpdate()
+        setHomeData(response.data.data)
       }
     } catch (error) {
       console.error("Error fetching data:", error);

@@ -41,6 +41,7 @@ export async function PUT(req: any, res: any) {
       JSON.stringify({
         success: true,
         message: "Content updated successfully",
+        data
       }),
       {
         status: 200,

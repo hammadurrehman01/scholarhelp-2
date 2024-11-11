@@ -12,10 +12,10 @@ import { DialogComp } from "@/app/components/common/Modal";
 
 interface ParentProps {
   homeData: any;
-  onUpdate: any;
+  setHomeData: any;
 }
 
-export const HeroSection = ({ homeData, onUpdate  }: ParentProps) => {
+export const HeroSection = ({ homeData, setHomeData  }: ParentProps) => {
 
   const { ref, inView } = useInView({
     triggerOnce: false,
@@ -38,7 +38,7 @@ export const HeroSection = ({ homeData, onUpdate  }: ParentProps) => {
       >
         <div className="grid lg:grid-cols-2 grid-cols-1 mx-auto max-w-screen-xl py-10 ">
           <div className="py-20 px-5 md:pt-36">
-            <DialogComp homeData={homeData} onUpdate={onUpdate} />
+            <DialogComp homeData={homeData} setHomeData={setHomeData} />
             {!homeData ? (
               <SkeletonComp />
             ) : (
