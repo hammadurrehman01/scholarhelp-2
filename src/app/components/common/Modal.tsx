@@ -86,8 +86,6 @@ export const DialogComp = ({ homeData, onUpdate }: Props) => {
     text: homeData?.formData?.formButton?.text || "",
   });
 
-  //   const handleSaveChanges = async () => {
-
   const handleSaveChanges = async () => {
     const updatedData = {
       heading: { id: mainheading.id, text: mainheading.text },
