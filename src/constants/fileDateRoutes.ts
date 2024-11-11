@@ -1,1 +1,1 @@
-export const heroSection = 'homedata/heroSection.json';
+export const heroSection = 'tmp/heroSection.json';
