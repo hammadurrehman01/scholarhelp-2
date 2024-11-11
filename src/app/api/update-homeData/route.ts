@@ -56,7 +56,7 @@ export async function PUT(req: Request) {
 
     // Respond with success
     return new Response(
-      JSON.stringify({
+      JSON.stringify({  
         success: true,
         message: "Database content updated successfully",
         data,

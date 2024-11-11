@@ -31,12 +31,8 @@ const HomeComp = () => {
     };
 
     useEffect(() => {
-      fetchHomeData(); // Fetch initial data on component mount
+      fetchHomeData();
     }, []);
-
-    const handleUpdate = async () => {
-      await fetchHomeData(); // Manually refetch after update
-    };
 
   return (
     <>
@@ -44,7 +40,7 @@ const HomeComp = () => {
         <Loader />
       ) : (
         <div>
-          <HeroSection homeData={homeData} onUpdate={handleUpdate} />
+          <HeroSection homeData={homeData} setHomeData={setHomeData} />
           <WorkFlow />
           <AboutContent />
           <FormContent />
