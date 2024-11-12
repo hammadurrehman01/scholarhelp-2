@@ -14,76 +14,76 @@ import {
 import axios from "axios";
 
 interface Props {
-  homeData: any;
-  setHomeData: any;
+  heroSectionData: any;
+  setHeroSectionData: any;
 }
 
-export const DialogComp = ({ homeData, setHomeData }: Props) => {
+export const DialogComp = ({ heroSectionData, setHeroSectionData }: Props) => {
   const [modal, setModal] = useState(false);
 
   const [mainheading, setMainheading] = useState({
-    id: homeData?.heading?.id || "",
-    text: homeData?.heading?.text || "",
+    id: heroSectionData?.heading?.id || "",
+    text: heroSectionData?.heading?.text || "",
   });
 
   const [subheading, setSubheading] = useState({
-    id: homeData?.sub_heading?.id || "",
-    text: homeData?.sub_heading?.text || "",
+    id: heroSectionData?.sub_heading?.id || "",
+    text: heroSectionData?.sub_heading?.text || "",
   });
 
   const [servicevalues1, setServicevalues1] = useState({
-    id: homeData?.service_values?.one?.id || "",
-    text: homeData?.service_values?.one?.text || "",
+    id: heroSectionData?.service_values?.one?.id || "",
+    text: heroSectionData?.service_values?.one?.text || "",
   });
 
   const [servicevalues2, setServicevalues2] = useState({
-    id: homeData?.service_values?.two?.id || "",
-    text: homeData?.service_values?.two?.text || "",
+    id: heroSectionData?.service_values?.two?.id || "",
+    text: heroSectionData?.service_values?.two?.text || "",
   });
 
   const [servicevalues3, setServicevalues3] = useState({
-    id: homeData?.service_values?.three?.id || "",
-    text: homeData?.service_values?.three?.text || "",
+    id: heroSectionData?.service_values?.three?.id || "",
+    text: heroSectionData?.service_values?.three?.text || "",
   });
 
   const [buttons1, setButtons1] = useState({
-    id: homeData?.buttons?.one?.id || "",
-    text: homeData?.buttons?.one?.text || "",
+    id: heroSectionData?.buttons?.one?.id || "",
+    text: heroSectionData?.buttons?.one?.text || "",
   });
 
   const [buttons2, setButtons2] = useState({
-    id: homeData?.buttons?.two?.id || "",
-    text: homeData?.buttons?.two?.text || "",
+    id: heroSectionData?.buttons?.two?.id || "",
+    text: heroSectionData?.buttons?.two?.text || "",
   });
 
   const [topBar, setTopBar] = useState({
-    id: homeData?.formData?.topBar?.id || "",
-    text: homeData?.formData?.topBar?.text || "",
+    id: heroSectionData?.formData?.topBar?.id || "",
+    text: heroSectionData?.formData?.topBar?.text || "",
   });
 
   const [formheading, setFormheading] = useState({
-    id: homeData?.formData?.heading?.id || "",
-    text: homeData?.formData?.heading?.text || "",
+    id: heroSectionData?.formData?.heading?.id || "",
+    text: heroSectionData?.formData?.heading?.text || "",
   });
 
   const [formtabs1, setFormtabs1] = useState({
-    id: homeData?.formData?.tabs?.one?.id || "",
-    text: homeData?.formData?.tabs?.one?.text || "",
+    id: heroSectionData?.formData?.tabs?.one?.id || "",
+    text: heroSectionData?.formData?.tabs?.one?.text || "",
   });
 
   const [formtabs2, setFormtabs2] = useState({
-    id: homeData?.formData?.tabs?.two?.id || "",
-    text: homeData?.formData?.tabs?.two?.text || "",
+    id: heroSectionData?.formData?.tabs?.two?.id || "",
+    text: heroSectionData?.formData?.tabs?.two?.text || "",
   });
 
   const [formtabs3, setFormtabs3] = useState({
-    id: homeData?.formData?.tabs?.three?.id || "",
-    text: homeData?.formData?.tabs?.three?.text || "",
+    id: heroSectionData?.formData?.tabs?.three?.id || "",
+    text: heroSectionData?.formData?.tabs?.three?.text || "",
   });
 
   const [formButton, setFormButton] = useState({
-    id: homeData?.formData?.formButton?.id || "",
-    text: homeData?.formData?.formButton?.text || "",
+    id: heroSectionData?.formData?.formButton?.id || "",
+    text: heroSectionData?.formData?.formButton?.text || "",
   });
 
   const handleSaveChanges = async () => {
@@ -112,12 +112,12 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
     };
     try {
       const response = await axios.put<any>(
-        "/api/update-homeData",
+        "/api/update-heroSectionData",
         updatedData
       );
       if(response.status === 200) {
         setModal(false)
-        setHomeData(response.data.data)
+        setHeroSectionData(response.data.data)
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -143,11 +143,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="mainheading"
-              defaultValue={homeData?.heading?.text}
+              defaultValue={heroSectionData?.heading?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setMainheading({
-                  id: homeData?.heading?.id,
+                  id: heroSectionData?.heading?.id,
                   text: e.target.value,
                 })
               }
@@ -159,11 +159,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="subheading"
-              defaultValue={homeData?.sub_heading?.text}
+              defaultValue={heroSectionData?.sub_heading?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setSubheading({
-                  id: homeData?.sub_heading?.id,
+                  id: heroSectionData?.sub_heading?.id,
                   text: e.target.value,
                 })
               }
@@ -175,11 +175,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="servicevalues1"
-              defaultValue={homeData?.service_values?.one?.text}
+              defaultValue={heroSectionData?.service_values?.one?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setServicevalues1({
-                  id: homeData?.service_values?.one?.id,
+                  id: heroSectionData?.service_values?.one?.id,
                   text: e.target.value,
                 })
               }
@@ -191,11 +191,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="servicevalues2"
-              defaultValue={homeData?.service_values?.two?.text}
+              defaultValue={heroSectionData?.service_values?.two?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setServicevalues2({
-                  id: homeData?.service_values?.two?.id,
+                  id: heroSectionData?.service_values?.two?.id,
                   text: e.target.value,
                 })
               }
@@ -207,11 +207,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="servicevalues3"
-              defaultValue={homeData?.service_values?.three?.text}
+              defaultValue={heroSectionData?.service_values?.three?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setServicevalues3({
-                  id: homeData?.service_values?.three?.id,
+                  id: heroSectionData?.service_values?.three?.id,
                   text: e.target.value,
                 })
               }
@@ -223,11 +223,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="button1"
-              defaultValue={homeData?.buttons?.one?.text}
+              defaultValue={heroSectionData?.buttons?.one?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setButtons1({
-                  id: homeData?.buttons?.one?.id,
+                  id: heroSectionData?.buttons?.one?.id,
                   text: e.target.value,
                 })
               }
@@ -239,11 +239,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="button2"
-              defaultValue={homeData?.buttons?.two?.text}
+              defaultValue={heroSectionData?.buttons?.two?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setButtons2({
-                  id: homeData?.buttons?.two?.id,
+                  id: heroSectionData?.buttons?.two?.id,
                   text: e.target.value,
                 })
               }
@@ -255,11 +255,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="topBar"
-              defaultValue={homeData?.formData?.topBar?.text}
+              defaultValue={heroSectionData?.formData?.topBar?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setTopBar({
-                  id: homeData?.formData?.topBar?.id,
+                  id: heroSectionData?.formData?.topBar?.id,
                   text: e.target.value,
                 })
               }
@@ -271,11 +271,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="formheading"
-              defaultValue={homeData?.formData?.heading?.text}
+              defaultValue={heroSectionData?.formData?.heading?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setFormheading({
-                  id: homeData?.formData?.heading?.id,
+                  id: heroSectionData?.formData?.heading?.id,
                   text: e.target.value,
                 })
               }
@@ -287,11 +287,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="formtabs1"
-              defaultValue={homeData?.formData?.tabs?.one?.text}
+              defaultValue={heroSectionData?.formData?.tabs?.one?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setFormtabs1({
-                  id: homeData?.formData?.tabs?.one?.id,
+                  id: heroSectionData?.formData?.tabs?.one?.id,
                   text: e.target.value,
                 })
               }
@@ -303,11 +303,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="formtabs2"
-              defaultValue={homeData?.formData?.tabs?.two?.text}
+              defaultValue={heroSectionData?.formData?.tabs?.two?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setFormtabs2({
-                  id: homeData?.formData?.tabs?.two?.id,
+                  id: heroSectionData?.formData?.tabs?.two?.id,
                   text: e.target.value,
                 })
               }
@@ -319,11 +319,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="formtabs3"
-              defaultValue={homeData?.formData?.tabs?.three?.text}
+              defaultValue={heroSectionData?.formData?.tabs?.three?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setFormtabs3({
-                  id: homeData?.formData?.tabs?.three?.id,
+                  id: heroSectionData?.formData?.tabs?.three?.id,
                   text: e.target.value,
                 })
               }
@@ -335,11 +335,11 @@ export const DialogComp = ({ homeData, setHomeData }: Props) => {
             </Label>
             <Input
               id="formButton"
-              defaultValue={homeData?.formData?.formButton?.text}
+              defaultValue={heroSectionData?.formData?.formButton?.text}
               className="col-span-3"
               onChange={(e: any) =>
                 setFormButton({
-                  id: homeData?.formData?.formButton?.id,
+                  id: heroSectionData?.formData?.formButton?.id,
                   text: e.target.value,
                 })
               }

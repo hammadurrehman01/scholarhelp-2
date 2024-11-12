@@ -48,11 +48,7 @@ export async function PUT(req: Request) {
       }
     }
 
-    // Execute the updates
     await updateNestedData(data);
-
-    // Close the database connection
-    // await db.end();
 
     // Respond with success
     return new Response(

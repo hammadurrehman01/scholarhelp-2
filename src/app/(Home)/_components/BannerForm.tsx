@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 interface Props {
-  formData?: any;
+  heroSectionData?: any;
 }
 
-function BannerForm({ formData }: Props) {
+function BannerForm({ heroSectionData }: Props) {
   const [date, setDate] = React.useState<Date>();
   const [activeButton, setActiveButton] = useState<string | null>("writing");
   const [wordCount, setWordCount] = useState<number>(250);
@@ -105,12 +105,12 @@ function BannerForm({ formData }: Props) {
         <div className="flex justify-center items-center lg:-translate-y-4    -translate-y-4">
           <div className=" w-1/2 shadow-2xl rounded rounded-tl-2xl rounded-br-2xl bg-indigo-600 py-3 ">
             <div className="text-center font-medium text-zinc-100 text-sm md:text-base  ">
-              {formData?.topBar?.text}
+              {heroSectionData.formData_topbar}
             </div>
           </div>
         </div>
         <div className="text-center font-bold text-lg md:text-2xl mt-2 px-3  ">
-          {formData?.heading?.text}
+          {heroSectionData.formData_heading}
         </div>
         <div className="flex justify-center items-center mt-3">
           <button
@@ -122,7 +122,7 @@ function BannerForm({ formData }: Props) {
             }`}
             onClick={() => handleClick("writing")}
           >
-            {formData?.tabs?.one?.text}
+            {heroSectionData.formData_tab_one}
           </button>
           <button
             type="button"
@@ -133,7 +133,7 @@ function BannerForm({ formData }: Props) {
             }`}
             onClick={() => handleClick("rewriting")}
           >
-            {formData?.tabs?.two?.text}
+            {heroSectionData.formData_tab_two}
           </button>
           <button
             type="button"
@@ -144,7 +144,7 @@ function BannerForm({ formData }: Props) {
             }`}
             onClick={() => handleClick("editing")}
           >
-            {formData?.tabs?.three?.text}
+            {heroSectionData.formData_tab_three}
           </button>
         </div>
 
@@ -328,7 +328,7 @@ function BannerForm({ formData }: Props) {
                 <p>Submitting...</p>
               </>
             ) : (
-              formData?.formButton?.text
+              heroSectionData.formData_button
             )}
           </button>
         </div>
