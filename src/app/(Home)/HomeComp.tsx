@@ -1,6 +1,8 @@
 "use client";
 
 import "aos/dist/aos.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import AboutContent from "./_components/AboutContent";
 import Academic from "./_components/Academic";
 import Faq from "./_components/Faq";
@@ -13,9 +15,7 @@ import SmallDivider from "./_components/SmallDivider";
 import TrustReview from "./_components/TrustReview";
 import WhyUs from "./_components/WhyUs";
 import WorkFlow from "./_components/WorkFlow";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Loader from "../components/common/Loader";
+import SkeletonComp from "../components/common/SkeletonComp";
 
 const HomeComp = () => {
   const [heroSectionData, setHeroSectionData] = useState<any>();
@@ -31,7 +31,7 @@ const HomeComp = () => {
   const [academicData, setAcademicData] = useState<any>();
   const [sampleData, setSampleData] = useState<any>();
 
-  const fetchheroSectionData = async () => {
+  const fetchHomePageData = async () => {
     try {
       const response = await axios.get<any>("/api/fetch-homeData?page_id=1");
       console.log(response.data.data);
@@ -55,42 +55,45 @@ const HomeComp = () => {
   };
 
   useEffect(() => {
-    fetchheroSectionData();
+    fetchHomePageData();
   }, []);
 
   return (
     <>
-      {!heroSectionData ? (
-        <Loader />
-      ) : (
-        <div>
-          <HeroSection
-            heroSectionData={heroSectionData}
-            setHeroSectionData={setHeroSectionData}
-            chatNowBtn={heroSectionData.button_one}
-            chatOnWhatsapp={heroSectionData.button_two}
-          />
+      <div>
+        <HeroSection
+          fetchHomePageData={fetchHomePageData}
+          heroSectionData={heroSectionData}
+          setHeroSectionData={setHeroSectionData}
+          chatNowBtn={heroSectionData?.button_one}
+          chatOnWhatsapp={heroSectionData?.button_two}
+        />
+        {!workFlowData ? (
+          <SkeletonComp />
+        ) : (
           <WorkFlow
             workFlowData={workFlowData}
-            chatNowBtn={heroSectionData.button_one}
-            chatOnWhatsapp={heroSectionData.button_two}
+            setWorkFlowData={setWorkFlowData}
+            chatNowBtn={heroSectionData?.button_one}
+            chatOnWhatsapp={heroSectionData?.button_two}
           />
-          <AboutContent aboutContentData={aboutContentData} />
-          <FormContent
-            formContentData={formContentData}
-            chatNowBtn={heroSectionData.button_one}
-            chatOnWhatsapp={heroSectionData.button_two}
-          />
-          <LongContent longContent={longContent} />
-          <WhyUs whyUsData={whyUsData} />
-          <Faq faqData={faqData} />
-          <SmallDivider smallDividerData={smallDividerData} />
-          <TrustReview trustReviewData={trustReviewData} />
-          <Rating ratingData={ratingData} />
-          <Academic academicData={academicData} />
-          <Sample sampleData={sampleData} />
-        </div>
-      )}
+        )}
+
+        <AboutContent aboutContentData={aboutContentData} />
+        <FormContent
+          formContentData={formContentData}
+          chatNowBtn={heroSectionData?.button_one}
+          chatOnWhatsapp={heroSectionData?.button_two}
+        />
+        <LongContent longContent={longContent} />
+        <WhyUs whyUsData={whyUsData} />
+        <Faq faqData={faqData} />
+        <SmallDivider smallDividerData={smallDividerData} />
+        <TrustReview trustReviewData={trustReviewData} />
+        <Rating ratingData={ratingData} />
+        <Academic academicData={academicData} />
+        <Sample sampleData={sampleData} />
+      </div>
     </>
   );
 };

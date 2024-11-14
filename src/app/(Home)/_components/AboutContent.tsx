@@ -41,11 +41,11 @@ function AboutContent({ aboutContentData }: Props) {
         <div className="" data-aos="flip-left">
           <div className="flex justify-start items-center mt-5 lg:mt-20">
             <h2 className="text-xl md:text-3xl font-bold text-center dark:text-zinc-100 text-indigo-900 ">
-              {aboutContentData.heading}
+              {aboutContentData?.heading}
             </h2>
           </div>
           <p className="mt-2 md:mt-4 md:text-base text-sm font-medium text-muted-foreground">
-            {aboutContentData.para}
+            {aboutContentData?.para}
           </p>
           <CtaChat aboutContentData={aboutContentData} />
         </div>

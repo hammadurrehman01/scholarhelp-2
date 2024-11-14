@@ -318,7 +318,8 @@ console.log("orderData",orderData);
   });
 
   //**********Redirect the user to thankyou page**********//
-  return NextResponse.redirect("https://takingmyclassesonline.com/thank-you");
+  // return NextResponse.redirect("https://takingmyclassesonline.com/thank-you");
+  return NextResponse.redirect("http://localhost:3000/thank-you");
 }
 // http://localhost:3000/thank-you
 

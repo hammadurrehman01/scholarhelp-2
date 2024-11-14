@@ -42,24 +42,24 @@ function FormContent({ formContentData, chatNowBtn, chatOnWhatsapp }: Props) {
               <AccordionItem value="item-1">
                 <AccordionTrigger>
                   <h2 className="cursor-pointer text-left py-2 rounded rounded-tr-[20px] rounded-tl-[20px]  md:text-xl font-bold flex justify-between group  ">
-                    {formContentData.accordion_head_one}
+                    {formContentData?.accordion_head_one}
                   </h2>
                 </AccordionTrigger>
                 <AccordionContent>
                   <p className=" py-4 rounded  rounded-br-[10px] rounded-bl-[10px] text-sm md:text-base  ">
-                    {formContentData.accordion_para_one}
+                    {formContentData?.accordion_para_one}
                   </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger>
                   <h2 className="cursor-pointer py-2 rounded rounded-tr-[20px] rounded-tl-[20px]  md:text-xl font-bold flex justify-between group  ">
-                    {formContentData.accordion_head_two}
+                    {formContentData?.accordion_head_two}
                   </h2>
                 </AccordionTrigger>
                 <AccordionContent>
                   <p className=" py-4 rounded  rounded-br-[10px] rounded-bl-[10px] text-sm md:text-base  ">
-                    {formContentData.accordion_para_two}
+                    {formContentData?.accordion_para_two}
                   </p>
                 </AccordionContent>
               </AccordionItem>

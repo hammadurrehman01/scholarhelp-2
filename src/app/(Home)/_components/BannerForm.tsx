@@ -105,12 +105,12 @@ function BannerForm({ heroSectionData }: Props) {
         <div className="flex justify-center items-center lg:-translate-y-4    -translate-y-4">
           <div className=" w-1/2 shadow-2xl rounded rounded-tl-2xl rounded-br-2xl bg-indigo-600 py-3 ">
             <div className="text-center font-medium text-zinc-100 text-sm md:text-base  ">
-              {heroSectionData.formData_topbar}
+              {heroSectionData?.formData_topbar}
             </div>
           </div>
         </div>
         <div className="text-center font-bold text-lg md:text-2xl mt-2 px-3  ">
-          {heroSectionData.formData_heading}
+          {heroSectionData?.formData_heading}
         </div>
         <div className="flex justify-center items-center mt-3">
           <button
@@ -122,7 +122,7 @@ function BannerForm({ heroSectionData }: Props) {
             }`}
             onClick={() => handleClick("writing")}
           >
-            {heroSectionData.formData_tab_one}
+            {heroSectionData?.formData_tab_one}
           </button>
           <button
             type="button"
@@ -133,7 +133,7 @@ function BannerForm({ heroSectionData }: Props) {
             }`}
             onClick={() => handleClick("rewriting")}
           >
-            {heroSectionData.formData_tab_two}
+            {heroSectionData?.formData_tab_two}
           </button>
           <button
             type="button"
@@ -144,7 +144,7 @@ function BannerForm({ heroSectionData }: Props) {
             }`}
             onClick={() => handleClick("editing")}
           >
-            {heroSectionData.formData_tab_three}
+            {heroSectionData?.formData_tab_three}
           </button>
         </div>
 
@@ -328,7 +328,7 @@ function BannerForm({ heroSectionData }: Props) {
                 <p>Submitting...</p>
               </>
             ) : (
-              heroSectionData.formData_button
+              heroSectionData?.formData_button ? heroSectionData?.formData_button : "Get A Free Quote"
             )}
           </button>
         </div>

@@ -29,36 +29,36 @@ const Faq = ({ faqData }: Props) => {
 
   const questions = [
     {
-      question: faqData.question_one,
-      answer: faqData.answer_one,
+      question: faqData?.question_one,
+      answer: faqData?.answer_one,
     },
     {
-      question: faqData.question_two,
-      answer: faqData.answer_two,
+      question: faqData?.question_two,
+      answer: faqData?.answer_two,
     },
     {
-      question: faqData.question_three,
-      answer: faqData.answer_three,
+      question: faqData?.question_three,
+      answer: faqData?.answer_three,
     },
     {
-      question: faqData.question_four,
-      answer: faqData.answer_four,
+      question: faqData?.question_four,
+      answer: faqData?.answer_four,
     },
     {
-      question: faqData.question_five,
-      answer: faqData.answer_five,
+      question: faqData?.question_five,
+      answer: faqData?.answer_five,
     },
     {
-      question: faqData.question_six,
-      answer: faqData.answer_six,
+      question: faqData?.question_six,
+      answer: faqData?.answer_six,
     },
     {
-      question: faqData.question_seven,
-      answer: faqData.answer_seven,
+      question: faqData?.question_seven,
+      answer: faqData?.answer_seven,
     },
     {
-      question: faqData.question_eight,
-      answer: faqData.answer_eight,
+      question: faqData?.question_eight,
+      answer: faqData?.answer_eight,
     },
   ];
 
@@ -69,10 +69,10 @@ const Faq = ({ faqData }: Props) => {
   return (
     <div ref={ref} className="mx-auto max-w-screen-xl mt-10">
       <h2 className="text-center px-4 text-xl lg:text-4xl font-extrabold dark:text-zinc-100 text-indigo-950">
-        {faqData.main_heading}
+        {faqData?.main_heading}
       </h2>
       <h3 className="text-center px-4 text-lg  lg:text-3xl font-bold dark:text-zinc-100 text-indigo-950">
-        {faqData.sub_heading}
+        {faqData?.sub_heading}
       </h3>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-4 p-5">

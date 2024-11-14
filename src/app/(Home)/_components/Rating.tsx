@@ -27,22 +27,22 @@ const Rating = ({ ratingData }: Props) => {
   return (
     <div ref={ref} className="pt-10">
       <div className="text-2xl md:text-5xl font-extrabold text-center dark:text-zinc-100 text-violet-950">
-        {ratingData.main_heading}
+        {ratingData?.main_heading}
       </div>
       <p className="text-center pt-4 font-medium md:text-lg  max-w-screen-md mx-auto px-4 text-sm">
-        {ratingData.sub_heading}
+        {ratingData?.sub_heading}
       </p>
       <div className="grid lg:grid-cols-2 grid-cols-1 mx-auto max-w-screen-xl">
         <div data-aos="fade-up" className=" p-7">
           <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-4">
             <Card
               image="/imgs/confidential-folder.png"
-              title={ratingData.card_title_one}
+              title={ratingData?.card_title_one}
               isStar={false}
             />
             <Card
               image="/imgs/spam.png"
-              title={ratingData.card_title_two}
+              title={ratingData?.card_title_two}
               isStar={false}
             />
           </div>
@@ -50,12 +50,12 @@ const Rating = ({ ratingData }: Props) => {
           <div className="flex flex-col md:flex-row items-center mt-4 space-y-3 md:space-y-0 md:space-x-4">
             <Card
               image="/imgs/documents.png"
-              title={ratingData.card_title_three}
+              title={ratingData?.card_title_three}
               isStar={false}
             />
             <Card
               image="/imgs/money-back-guarantee.png"
-              title={ratingData.card_title_four}
+              title={ratingData?.card_title_four}
               isStar={false}
             />
           </div>
@@ -65,12 +65,12 @@ const Rating = ({ ratingData }: Props) => {
           <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-4">
             <Card
               image="/imgs/google.png"
-              title={ratingData.card_title_five}
+              title={ratingData?.card_title_five}
               isStar={true}
             />
             <Card
               image="/imgs/trust-pilot.png"
-              title={ratingData.card_title_six}
+              title={ratingData?.card_title_six}
               isStar={true}
             />
           </div>
@@ -78,12 +78,12 @@ const Rating = ({ ratingData }: Props) => {
           <div className="flex flex-col md:flex-row items-center mt-4 space-y-3 md:space-y-0 md:space-x-4">
             <Card
               image="/imgs/site-jabber.png"
-              title={ratingData.card_title_seven}
+              title={ratingData?.card_title_seven}
               isStar={true}
             />
             <Card
               image="/imgs/reviews.io.png"
-              title={ratingData.card_title_eight}
+              title={ratingData?.card_title_eight}
               isStar={true}
             />
           </div>

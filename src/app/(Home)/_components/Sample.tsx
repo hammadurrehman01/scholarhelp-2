@@ -94,42 +94,42 @@ const Sample = ({ sampleData }: Props) => {
   const slides = [
     {
       imageSrc: "/imgs/pdf.png",
-      title: sampleData.slide_title_one,
-      subject: sampleData.slide_subject_one,
-      pages: sampleData.slide_nop_one,
-      level: sampleData.slide_al_one,
-      docType: sampleData.slide_dt_one,
+      title: sampleData?.slide_title_one,
+      subject: sampleData?.slide_subject_one,
+      pages: sampleData?.slide_nop_one,
+      level: sampleData?.slide_al_one,
+      docType: sampleData?.slide_dt_one,
       link: "/gmat-sample-papers",
       animation: "flip-up",
     },
     {
       imageSrc: "/imgs/pdf.png",
-      title: sampleData.slide_title_two,
-      subject: sampleData.slide_subject_two,
-      pages: sampleData.slide_nop_two,
-      level: sampleData.slide_al_two,
-      docType: sampleData.slide_dt_two,
+      title: sampleData?.slide_title_two,
+      subject: sampleData?.slide_subject_two,
+      pages: sampleData?.slide_nop_two,
+      level: sampleData?.slide_al_two,
+      docType: sampleData?.slide_dt_two,
       link: "/lsat-sample-papers",
       animation: "flip-down",
     },
     {
       imageSrc: "/imgs/pdf.png",
-      title: sampleData.slide_title_three,
-      subject: sampleData.slide_subject_three,
-      pages: sampleData.slide_nop_three,
-      level: sampleData.slide_al_three,
-      docType: sampleData.slide_dt_three,
+      title: sampleData?.slide_title_three,
+      subject: sampleData?.slide_subject_three,
+      pages: sampleData?.slide_nop_three,
+      level: sampleData?.slide_al_three,
+      docType: sampleData?.slide_dt_three,
       link: "/gre-sample-papers",
       animation: "flip-up",
     },
     {
       imageSrc: "/imgs/pdf.png",
-      title: sampleData.slide_title_four,
-      subject: sampleData.slide_subject_four,
-      pages: sampleData.slide_nop_four,
+      title: sampleData?.slide_title_four,
+      subject: sampleData?.slide_subject_four,
+      pages: sampleData?.slide_nop_four,
       
-      level: sampleData.slide_al_four,
-      docType: sampleData.slide_dt_four,
+      level: sampleData?.slide_al_four,
+      docType: sampleData?.slide_dt_four,
       link: "/ged-sample-papers",
       animation: "flip-down",
     },
@@ -150,10 +150,10 @@ const Sample = ({ sampleData }: Props) => {
         <div className="mx-auto max-w-screen-xl">
           <h2 className="md:-translate-y-10 -translate-y-3 text-xl md:text-5xl text-center font-extrabold text-gray-100">
             {" "}
-            {sampleData.main_heading}
+            {sampleData?.main_heading}
           </h2>
           <p className="text-center font-medium px-10 xl:px-52 md:text-lg text-sm text-gray-100">
-            {sampleData.sub_heading}
+            {sampleData?.sub_heading}
           </p>
 
           <Swiper

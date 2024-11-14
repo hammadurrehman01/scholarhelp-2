@@ -63,29 +63,29 @@ function Academic({ academicData }: Props) {
   const services = [
     {
       imageSrc: "/imgs/webinar.png",
-      title: academicData.service_heading_one,
-      description: academicData.service_para_one,
+      title: academicData?.service_heading_one,
+      description: academicData?.service_para_one,
       link: "take-my-ged-for-me",
       animation: "flip-left",
     },
     {
       imageSrc: "/imgs/online-exam.png",
-      title: academicData.service_heading_two,
-      description: academicData.service_para_two,
+      title: academicData?.service_heading_two,
+      description: academicData?.service_para_two,
       link: "/take-my-gre-exam",
       animation: "flip-right",
     },
     {
       imageSrc: "/imgs/online-homework.png",
-      title: academicData.service_heading_three,
-      description: academicData.service_para_three,
+      title: academicData?.service_heading_three,
+      description: academicData?.service_para_three,
       link: "/take-gmat-online-exam",
       animation: "flip-left",
     },
     {
       imageSrc: "/imgs/essay.png",
-      title: academicData.service_heading_four,
-      description: academicData.service_para_four,
+      title: academicData?.service_heading_four,
+      description: academicData?.service_para_four,
       link: "/lsat-exam-prep",
       animation: "flip-right",
     },
@@ -94,10 +94,10 @@ function Academic({ academicData }: Props) {
   return (
     <div ref={ref} className="mx-auto max-w-screen-xl mt-10">
       <h2 className="text-2xl md:text-5xl text-center dark:text-zinc-100 text-violet-950 font-extrabold">
-        {academicData.main_heading}
+        {academicData?.main_heading}
       </h2>
       <h3 className="py-3 px-4 text-xl md:text-3xl text-center dark:text-zinc-100 text-violet-950 font-bold">
-        {academicData.sub_heading}
+        {academicData?.sub_heading}
       </h3>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-5 lg:mt-10 mx-auto">
         {services.map((service, index) => (

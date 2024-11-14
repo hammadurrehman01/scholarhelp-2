@@ -4,7 +4,6 @@ import "./globals.css";
 import Footer from "./(Home)/_components/Footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar2 from "./(Home)/_components/Navbar2";
-import Tawkto from "@/lib/Tawto";
 import ScrollToTop from "./ScrollToTop";
 
 const canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -120,7 +119,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <Tawkto />
+          {/* <Tawkto /> */}
           <ScrollToTop />
           <Navbar2 />
           {children}

@@ -65,28 +65,28 @@ interface Props {
 const TrustReview = ({ trustReviewData }: Props) => {
   const reviews = [
     {
-      name: trustReviewData.review_heading_one,
-      text: trustReviewData.review_para_one,
+      name: trustReviewData?.review_heading_one,
+      text: trustReviewData?.review_para_one,
     },
     {
-      name: trustReviewData.review_heading_two,
-      text: trustReviewData.review_para_two,
+      name: trustReviewData?.review_heading_two,
+      text: trustReviewData?.review_para_two,
     },
     {
-      name: trustReviewData.review_heading_three,
-      text: trustReviewData.review_para_three,
+      name: trustReviewData?.review_heading_three,
+      text: trustReviewData?.review_para_three,
     },
     {
-      name: trustReviewData.review_heading_four,
-      text: trustReviewData.review_para_four,
+      name: trustReviewData?.review_heading_four,
+      text: trustReviewData?.review_para_four,
     },
     {
-      name: trustReviewData.review_heading_five,
-      text: trustReviewData.review_para_five,
+      name: trustReviewData?.review_heading_five,
+      text: trustReviewData?.review_para_five,
     },
     {
-      name: trustReviewData.review_heading_six,
-      text: trustReviewData.review_para_six,
+      name: trustReviewData?.review_heading_six,
+      text: trustReviewData?.review_para_six,
     },
   ];
 

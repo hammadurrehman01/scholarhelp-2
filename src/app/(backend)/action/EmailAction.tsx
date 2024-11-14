@@ -6,10 +6,7 @@ import saveFormDataToJson from "./saveDataToJson";
 import { transporter } from "./Transporter";
 import { File } from "buffer";
 
-
-
 export const EmailAction = async (formData: FormData) => {
-
   // **************Extracting variables separately*******************//
 
   const orderId = generateOrderId();
@@ -37,11 +34,9 @@ export const EmailAction = async (formData: FormData) => {
   const ppp = formData.get("ppp") as string;
   const unit = formData.get("unit") as string;
 
-
-file?.map((i: { name: any; })=>{
-  console.log(i.name);
-})
-
+  file?.map((i: { name: any }) => {
+    console.log(i.name);
+  });
 
   const data: any = {
     orderId,
@@ -68,20 +63,20 @@ file?.map((i: { name: any; })=>{
     symbol,
     ppp,
     unit,
-  }
+  };
 
   // ************** Redirect user to stripe*******************
 
-  const paymentLinkStripe = generateStripeLink(unit,orderId, totalPrice)
+  const paymentLinkStripe = generateStripeLink(unit, orderId, totalPrice);
 
   try {
     saveFormDataToJson(data);
-    if(file){
-      await handleFileUpload(file)
+    if (file) {
+      await handleFileUpload(file);
     }
-    data['paymentLinkStripe'] = paymentLinkStripe;
-    await sendEmailClient(data)
-    await sendEmailSupport(data)
+    data["paymentLinkStripe"] = paymentLinkStripe;
+    await sendEmailClient(data);
+    await sendEmailSupport(data);
   } catch (error) {
     console.log(error);
     return { error: "Something went wrong" };
@@ -90,28 +85,28 @@ file?.map((i: { name: any; })=>{
   return { success: paymentLinkStripe };
 };
 
-
-
-
 async function handleFileUpload(files: File[]) {
   try {
-    const uploadDir = path.join(process.cwd(), 'Attachments');
+    const uploadDir = path.join(process.cwd(), "Attachments");
 
     // Create the directory if it doesn't exist
     await fsPromises.mkdir(uploadDir, { recursive: true });
 
-    console.log('Files to upload:', files); // Log the files
+    console.log("Files to upload:", files); // Log the files
 
     // Map over files and create promises for each file upload
     const filePromises = files.map(async (file) => {
       // Log the file object directly to inspect its structure
-      console.log('Inspecting file object:', file);
-      
+      console.log("Inspecting file object:", file);
+
       if (!file.name) {
-        console.error('File object does not have a name:', JSON.stringify(file));
+        console.error(
+          "File object does not have a name:",
+          JSON.stringify(file)
+        );
         return; // Skip this file
       }
-    
+
       const filePath = path.join(uploadDir, file.name);
       try {
         const buffer = Buffer.from(await file.arrayBuffer());
@@ -121,13 +116,12 @@ async function handleFileUpload(files: File[]) {
         console.error(`Error saving file ${file.name}:`, err);
       }
     });
-      
-  
+
     // Wait for all file uploads to complete
     await Promise.all(filePromises);
-    console.log('All files uploaded successfully.');
+    console.log("All files uploaded successfully.");
   } catch (error) {
-    console.error('Error handling file upload:', error);
+    console.error("Error handling file upload:", error);
   }
 }
 
@@ -157,8 +151,8 @@ async function sendEmailClient(data: any) {
     symbol,
     ppp,
     unit,
-    file
-  } = data
+    file,
+  } = data;
   const clientMailOptions = {
     from: `TakingMyClassesOnline® Alert - Order Recieved <${process.env.MAILFROM}>`,
     to: email,
@@ -410,11 +404,11 @@ async function sendEmailClient(data: any) {
     console.log("client Email sent:", info2.messageId);
   } catch (error) {
     console.error("Error sending email:", error);
-
   }
 }
 
 async function sendEmailSupport(data: any) {
+  
   const {
     orderId,
     name,
@@ -440,7 +434,9 @@ async function sendEmailSupport(data: any) {
     symbol,
     ppp,
     unit,
-  } = data
+  } = data;
+
+  console.log("file ========>", file);
   
 
   const supportMailOptions = {
@@ -499,7 +495,7 @@ function generateStripeLink(unit: string, orderId: string, totalPrice: string) {
 
   const paymentLinkStripe = `https://eduresearchers.com/test-payment/secure-pay-external-2.php?cevpr_havg=${finalPaymentUnit}&cevpr_nzbhag=${finalTotalAmount}&cebqhpg_anzr=${finalProductName}&gbxra_rkgreany=${orderToken}&url=${finalUrl}`;
   // const paymentLinkStripe = `https://mastermindsenterprises.com/stripe-version-2/secure-pay-external-2.php?cevpr_havg=${finalPaymentUnit}&cevpr_nzbhag=${finalTotalAmount}&cebqhpg_anzr=${finalProductName}&gbxra_rkgreany=${orderToken}&url=${finalUrl}`;
-  return paymentLinkStripe
+  return paymentLinkStripe;
 }
 //https://mastermindsenterprises.com/stripe-version-2/secure-pay-external-2.php?cevpr_havg=$500&cevpr_nzbhag=500&cebqhpg_anzr=digital&gbxra_rkgreany=23443&url=https://scholarhelp.vercel.app/api
 

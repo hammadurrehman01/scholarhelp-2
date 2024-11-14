@@ -11,12 +11,11 @@ interface Props {
   smallDividerData: any;
 }
 function SmallDivider({ smallDividerData }: Props) {
-  
   const words = [
-    smallDividerData.word_one,
-    smallDividerData.word_two,
-    smallDividerData.word_three,
-    smallDividerData.word_four,
+    smallDividerData?.word_one,
+    smallDividerData?.word_two,
+    smallDividerData?.word_three,
+    smallDividerData?.word_four,
   ];
   const { ref, inView } = useInView({
     triggerOnce: false,

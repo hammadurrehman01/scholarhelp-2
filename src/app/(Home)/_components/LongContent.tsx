@@ -40,25 +40,25 @@ function LongContent({ longContent }: Props) {
           <div className="h-[2px] w-full bg-zinc-800"></div>
           <div className="p-5">
             <h2 className="font-extrabold text-xl md:text-4xl dark:text-zinc-100 text-indigo-950   ">
-              {longContent.heading_one}
+              {longContent?.heading_one}
             </h2>
             <p className="font-medium text-muted-foreground md:text-base text-sm pt-4 ">
-              {longContent.para_one_pt_one}
+              {longContent?.para_one_pt_one}
               <Link
                 href={"/pay-someone-to-take-my-class"}
                 className=" text-blue-500 hover:underline underline-offset-2 transition ease-in duration-150 delay-150"
               >
                 {" "}
-                {longContent.para_one_link}
+                {longContent?.para_one_link}
               </Link>{" "}
-              {longContent.para_one_pt_two}
+              {longContent?.para_one_pt_two}
             </p>
 
             <h2 className="font-extrabold text-xl md:text-4xl dark:text-zinc-100 text-indigo-950 mt-3">
-              {longContent.heading_two}
+              {longContent?.heading_two}
             </h2>
             <p className="font-medium text-muted-foreground md:text-base text-sm pt-4 ">
-              {longContent.para_two}
+              {longContent?.para_two}
             </p>
 
             {showMore && <DynamicContent1 longContent={longContent} />}
