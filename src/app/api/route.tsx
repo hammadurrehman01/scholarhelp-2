@@ -20,7 +20,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
   );
   const fileData = await fsPromises.readFile(filePath, "utf8");
   const orderData = JSON.parse(fileData);
-console.log("orderData",orderData);
 
   //**********Sending  Email to support ********* */
   const supportMailOptions = {

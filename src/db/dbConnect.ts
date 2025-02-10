@@ -26,7 +26,7 @@ export async function dbConnection() {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         waitForConnections: true,
-        connectionLimit: 10, // Adjust based on your expected load
+        connectionLimit: 10,
         queueLimit: 0,
       });
       console.log("Database pool created successfully.");

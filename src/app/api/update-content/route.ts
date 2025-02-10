@@ -10,9 +10,6 @@ export async function PUT(req: Request) {
 
     // Helper function to update the content table
     async function updateContent(sectionId: number, contentKey: string, contentValue: any) {
-      console.log("contentValue ==>", contentValue);
-      console.log("sectionId ==>", sectionId);
-      console.log("contentKey ==>", contentKey);
 
       const query = `UPDATE content SET content_value = ? WHERE section_id = ? AND content_key = ?`;
       await db.execute(query, [contentValue, sectionId, contentKey]);
