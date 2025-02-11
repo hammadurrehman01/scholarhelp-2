@@ -44,7 +44,9 @@ export const HeroSection = ({
       >
         <div className="grid lg:grid-cols-2 grid-cols-1 mx-auto max-w-screen-xl py-10 ">
           <div className="py-20 px-5 md:pt-36">
-            {!heroSectionData ? null : (
+            {!heroSectionData ? (
+              <SkeletonComp />
+            ) : (
               <>
                 <h1 className=" text-center py-2 lg:text-left dark:text-zinc-100 text-zinc-900 text-lg sm:text-4xl font-extrabold ">
                   {heroSectionData?.main_heading}
