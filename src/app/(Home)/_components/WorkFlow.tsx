@@ -56,10 +56,10 @@ function WorkFlow({
 
   return (
     <div ref={ref} data-aos="zoom-in" className="mx-auto max-w-screen-xl mt-10">
-      <WorkFlowModal
+      {/* <WorkFlowModal
         workFlowData={workFlowData}
         setWorkFlowData={setWorkFlowData}
-      />
+      /> */}
 
       <h2 className="text-center text-xl md:text-4xl font-extrabold dark:text-zinc-100 text-violet-950 px-4">
         {" "}
@@ -69,7 +69,7 @@ function WorkFlow({
         {workFlowData?.sub_heading}
       </h3>
 
-      <div className="  mt-8">
+      <div className="mt-8">
         <Tabs
           defaultValue={activeTab}
           value={activeTab}

@@ -44,13 +44,7 @@ export const HeroSection = ({
       >
         <div className="grid lg:grid-cols-2 grid-cols-1 mx-auto max-w-screen-xl py-10 ">
           <div className="py-20 px-5 md:pt-36">
-            <HeroSectionModal
-              heroSectionData={heroSectionData}
-              setHeroSectionData={setHeroSectionData}
-            />
-            {!heroSectionData ? (
-              <SkeletonComp />
-            ) : (
+            {!heroSectionData ? null : (
               <>
                 <h1 className=" text-center py-2 lg:text-left dark:text-zinc-100 text-zinc-900 text-lg sm:text-4xl font-extrabold ">
                   {heroSectionData?.main_heading}
@@ -173,13 +167,10 @@ export function CtaChat({ aboutContentData }: ChildProps) {
       window.Tawk_API.maximize();
     }
   };
-  
 
   return (
     <div className="flex flex-col md:flex-row items-center mt-5 scale-90 md:scale-100">
-      <div
-        className="flex justify-center items-center border-[2px] border-zinc-400 bg-indigo-500 transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-2 px-4 rounded-xl m-2 cursor-pointer"
-      >
+      <div className="flex justify-center items-center border-[2px] border-zinc-400 bg-indigo-500 transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-2 px-4 rounded-xl m-2 cursor-pointer">
         <Image src="/imgs/chat.png" width={32} height={32} alt="chat" />
         <button className="font-medium ml-2 text-zinc-100 md:text-base text-sm">
           Chat Now

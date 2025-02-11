@@ -117,117 +117,119 @@ export const HeroSectionModal = ({
   });
 
   return (
-    <Dialog open={modal} onOpenChange={(open) => setModal(open)}>
-      <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setModal(true)}>
-          Edit Content
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[800px] h-96 overflow-scroll overflow-x-hidden">
-        <DialogHeader>
-          <DialogTitle>Edit Content</DialogTitle>
-          <DialogDescription>
-            Make changes to your content here. Click save when you are done.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="main_heading" className="text-right">
-                Main Heading
-              </Label>
-              <Input
-                id="main_heading"
-                value={values.main_heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="sub_heading" className="text-right">
-                Sub Heading
-              </Label>
-              <Input
-                id="sub_heading"
-                value={values.sub_heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="service_values_one" className="text-right">
-                Bullet Point 1
-              </Label>
-              <Input
-                id="service_values_one"
-                value={values.service_values_one}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="service_values_two" className="text-right">
-              Bullet Point 2
-              </Label>
-              <Input
-                id="service_values_two"
-                value={values.service_values_two}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="service_values_three" className="text-right">
-              Bullet Point 3
-              </Label>
-              <Input
-                id="service_values_three"
-                value={values.service_values_three}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="formData_topbar" className="text-right">
-                Form Discount Heading
-              </Label>
-              <Input
-                id="formData_topbar"
-                value={values?.formData_topbar}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="formData_heading" className="text-right">
-                Form Heading
-              </Label>
-              <Input
-                id="formData_heading"
-                value={values.formData_heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-           
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="formData_button" className="text-right">
-                Form Button
-              </Label>
-              <Input
-                id="formData_button"
-                value={values.formData_button}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            {/* Repeat for other inputs like subheading, service values, form tabs, etc. */}
-          </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
-        </form>
-      </DialogContent>
-    </Dialog>
+    // <Dialog open={modal} onOpenChange={(open) => setModal(open)}>
+    //   {/* <DialogTrigger asChild>
+    //     <Button variant="outline" onClick={() => setModal(true)}>
+    //       Edit Content
+    //     </Button>
+    //   </DialogTrigger> */}
+    //   <DialogContent className="sm:max-w-[800px] h-96 overflow-scroll overflow-x-hidden">
+    //     <DialogHeader>
+    //       <DialogTitle>Edit Content</DialogTitle>
+    //       <DialogDescription>
+    //         Make changes to your content here. Click save when you are done.
+    //       </DialogDescription>
+    //     </DialogHeader>
+
+    //   </DialogContent>
+    // </Dialog>
+
+    <form onSubmit={handleSubmit}>
+      <div className="grid gap-4 py-4 ">
+        <div className="">
+          <Label htmlFor="main_heading" className="text-right text-gray-400 text-sm pl-2">
+            Main Heading
+          </Label>
+          <Input
+            id="main_heading"
+            value={values.main_heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="sub_heading" className="text-right text-gray-400 text-sm pl-2">
+            Sub Heading
+          </Label>
+          <Input
+            id="sub_heading"
+            value={values.sub_heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="service_values_one" className="text-right text-gray-400 text-sm pl-2">
+            Bullet Point 1
+          </Label>
+          <Input
+            id="service_values_one"
+            value={values.service_values_one}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="service_values_two" className="text-right text-gray-400 text-sm pl-2">
+            Bullet Point 2
+          </Label>
+          <Input
+            id="service_values_two"
+            value={values.service_values_two}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="service_values_three" className="text-right text-gray-400 text-sm pl-2">
+            Bullet Point 3
+          </Label>
+          <Input
+            id="service_values_three"
+            value={values.service_values_three}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="formData_topbar" className="text-right text-gray-400 text-sm pl-2">
+            Form Discount Heading
+          </Label>
+          <Input
+            id="formData_topbar"
+            value={values?.formData_topbar}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="formData_heading" className="text-right text-gray-400 text-sm pl-2">
+            Form Heading
+          </Label>
+          <Input
+            id="formData_heading"
+            value={values.formData_heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+
+        <div className="">
+          <Label htmlFor="formData_button" className="text-right text-gray-400 text-sm pl-2">
+            Form Button
+          </Label>
+          <Input
+            id="formData_button"
+            value={values.formData_button}
+            onChange={handleChange}
+            className="col-span-3 font-medium mt-1"
+          />
+        </div>
+        {/* Repeat for other inputs like subheading, service values, form tabs, etc. */}
+      </div>
+      <DialogFooter>
+        <Button type="submit">Save changes</Button>
+      </DialogFooter>
+    </form>
   );
 };

@@ -96,115 +96,211 @@ export const WorkFlowModal = ({ workFlowData, setWorkFlowData }: Props) => {
   });
 
   return (
-    <Dialog open={modal} onOpenChange={(open) => setModal(open)}>
-      <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setModal(true)}>
-          Edit Content
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[800px] h-96 overflow-scroll overflow-x-hidden">
-        <DialogHeader>
-          <DialogTitle>Edit Content</DialogTitle>
-          <DialogDescription>
-            Make changes to your content here. Click save when you are done.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="main_heading" className="text-right">
-                Main Heading
-              </Label>
-              <Input
-                id="main_heading"
-                value={values.main_heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="sub_heading" className="text-right">
-                Sub Heading
-              </Label>
-              <Input
-                id="sub_heading"
-                value={values.sub_heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_heading_one" className="text-right">
-                Heading 1
-              </Label>
-              <Input
-                id="tab_heading_one"
-                value={values.tab_heading_one}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_heading_two" className="text-right">
-              Heading 2
-              </Label>
-              <Input
-                id="tab_heading_two"
-                value={values.tab_heading_two}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_heading_three" className="text-right">
-              Heading 3
-              </Label>
-              <Input
-                id="tab_heading_three"
-                value={values.tab_heading_three}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_para_one" className="text-right">
-              Paragraph 1
-              </Label>
-              <Input
-                id="tab_para_one"
-                value={values.tab_para_one}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_para_two" className="text-right">
-              Paragraph 2
-              </Label>
-              <Input
-                id="tab_para_two"
-                value={values.tab_para_two}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="tab_para_three" className="text-right">
-              Paragraph 3
-              </Label>
-              <Input
-                id="tab_para_three"
-                value={values.tab_para_three}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
-        </form>
-      </DialogContent>
-    </Dialog>
+    // <Dialog open={modal} onOpenChange={(open) => setModal(open)}>
+    //   <DialogTrigger asChild>
+    //     <Button variant="outline" onClick={() => setModal(true)}>
+    //       Edit Content
+    //     </Button>
+    //   </DialogTrigger>
+    //   <DialogContent className="sm:max-w-[800px] h-96 overflow-scroll overflow-x-hidden">
+    //     <DialogHeader>
+    //       <DialogTitle>Edit Content</DialogTitle>
+    //       <DialogDescription>
+    //         Make changes to your content here. Click save when you are done.
+    //       </DialogDescription>
+    //     </DialogHeader>
+    //     <form onSubmit={handleSubmit}>
+    //       <div className="grid gap-4 py-4">
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="main_heading" className="text-right">
+    //             Main Heading
+    //           </Label>
+    //           <Input
+    //             id="main_heading"
+    //             value={values.main_heading}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="sub_heading" className="text-right">
+    //             Sub Heading
+    //           </Label>
+    //           <Input
+    //             id="sub_heading"
+    //             value={values.sub_heading}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_heading_one" className="text-right">
+    //             Heading 1
+    //           </Label>
+    //           <Input
+    //             id="tab_heading_one"
+    //             value={values.tab_heading_one}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_heading_two" className="text-right">
+    //           Heading 2
+    //           </Label>
+    //           <Input
+    //             id="tab_heading_two"
+    //             value={values.tab_heading_two}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_heading_three" className="text-right">
+    //           Heading 3
+    //           </Label>
+    //           <Input
+    //             id="tab_heading_three"
+    //             value={values.tab_heading_three}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_para_one" className="text-right">
+    //           Paragraph 1
+    //           </Label>
+    //           <Input
+    //             id="tab_para_one"
+    //             value={values.tab_para_one}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_para_two" className="text-right">
+    //           Paragraph 2
+    //           </Label>
+    //           <Input
+    //             id="tab_para_two"
+    //             value={values.tab_para_two}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //         <div className="grid grid-cols-4 items-center gap-4">
+    //           <Label htmlFor="tab_para_three" className="text-right">
+    //           Paragraph 3
+    //           </Label>
+    //           <Input
+    //             id="tab_para_three"
+    //             value={values.tab_para_three}
+    //             onChange={handleChange}
+    //             className="col-span-3"
+    //           />
+    //         </div>
+    //       </div>
+    //       <DialogFooter>
+    //         <Button type="submit">Save changes</Button>
+    //       </DialogFooter>
+    //     </form>
+    //   </DialogContent>
+    // </Dialog>
+
+    <form onSubmit={handleSubmit}>
+      <div className="grid gap-4 py-4">
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="main_heading" className="text-right">
+            Main Heading
+          </Label>
+          <Input
+            id="main_heading"
+            value={values.main_heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="sub_heading" className="text-right">
+            Sub Heading
+          </Label>
+          <Input
+            id="sub_heading"
+            value={values.sub_heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_heading_one" className="text-right">
+            Heading 1
+          </Label>
+          <Input
+            id="tab_heading_one"
+            value={values.tab_heading_one}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_heading_two" className="text-right">
+            Heading 2
+          </Label>
+          <Input
+            id="tab_heading_two"
+            value={values.tab_heading_two}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_heading_three" className="text-right">
+            Heading 3
+          </Label>
+          <Input
+            id="tab_heading_three"
+            value={values.tab_heading_three}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_para_one" className="text-right">
+            Paragraph 1
+          </Label>
+          <Input
+            id="tab_para_one"
+            value={values.tab_para_one}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_para_two" className="text-right">
+            Paragraph 2
+          </Label>
+          <Input
+            id="tab_para_two"
+            value={values.tab_para_two}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="tab_para_three" className="text-right">
+            Paragraph 3
+          </Label>
+          <Input
+            id="tab_para_three"
+            value={values.tab_para_three}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+      </div>
+      <DialogFooter>
+        <Button type="submit">Save changes</Button>
+      </DialogFooter>
+    </form>
   );
 };

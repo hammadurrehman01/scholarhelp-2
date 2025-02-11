@@ -19,7 +19,7 @@ interface Props {
   setAboutContentData: any;
 }
 
-export const WorkFlowModal = ({
+export const AboutContentModal = ({
   aboutContentData,
   setAboutContentData,
 }: Props) => {
@@ -63,49 +63,34 @@ export const WorkFlowModal = ({
   });
 
   return (
-    <Dialog open={modal} onOpenChange={(open) => setModal(open)}>
-      <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setModal(true)}>
-          Edit Content
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] h-96 overflow-scroll">
-        <DialogHeader>
-          <DialogTitle>Edit Content</DialogTitle>
-          <DialogDescription>
-            Make changes to your content here. Click save when you are done.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="heading" className="text-right">
-                Heading
-              </Label>
-              <Input
-                id="heading"
-                value={values.heading}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="para" className="text-right">
-                Para
-              </Label>
-              <Input
-                id="para"
-                value={values.para}
-                onChange={handleChange}
-                className="col-span-3"
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
-        </form>
-      </DialogContent>
-    </Dialog>
+    <form onSubmit={handleSubmit}>
+      <div className="grid gap-4 py-4">
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="heading" className="text-right">
+            Heading
+          </Label>
+          <Input
+            id="heading"
+            value={values.heading}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="para" className="text-right">
+            Para
+          </Label>
+          <Input
+            id="para"
+            value={values.para}
+            onChange={handleChange}
+            className="col-span-3 font-medium"
+          />
+        </div>
+      </div>
+      <DialogFooter>
+        <Button type="submit">Save changes</Button>
+      </DialogFooter>
+    </form>
   );
 };
