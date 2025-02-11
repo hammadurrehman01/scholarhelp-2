@@ -101,7 +101,7 @@ export default function Navbar2() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     {services.map((service, index) => (
-                      <Link href={service.href}>
+                      <Link href={service.href} key={index}>
                         <DropdownMenuItem
                           key={index}
                           className="cursor-pointer font-medium dark:text-zinc-200 text-zinc-800 hover:text-purple-500 dark:hover:text-purple-400 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
