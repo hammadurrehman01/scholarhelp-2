@@ -62,11 +62,7 @@ const SlideContent = ({
         </div>
         <div className="flex items-center justify-center mt-5">
           <div className="md:text-lg font-medium text-white">Rating</div>
-          <div className="flex items-center ml-3">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="stroke-yellow-400 fill-yellow-400" />
-            ))}
-          </div>
+          <div className="flex items-center ml-3">⭐⭐⭐⭐⭐</div>
         </div>
       </div>
     </div>
@@ -127,7 +123,7 @@ const Sample = ({ sampleData }: Props) => {
       title: sampleData?.slide_title_four,
       subject: sampleData?.slide_subject_four,
       pages: sampleData?.slide_nop_four,
-      
+
       level: sampleData?.slide_al_four,
       docType: sampleData?.slide_dt_four,
       link: "/ged-sample-papers",

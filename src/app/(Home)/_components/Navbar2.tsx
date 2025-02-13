@@ -55,7 +55,7 @@ export default function Navbar2() {
         <div className="flex justify-between py-2">
           <div className="flex items-center">
             <Link href="/" className="mr-6 flex items-center space-x-2">
-              <img
+              <Image
                 className="block dark:hidden"
                 src={"/assets/weblogo.png"}
                 width={80}

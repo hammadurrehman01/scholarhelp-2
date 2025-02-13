@@ -137,7 +137,10 @@ export const HeroSectionModal = ({
     <form onSubmit={handleSubmit}>
       <div className="grid gap-4 py-4 ">
         <div className="">
-          <Label htmlFor="main_heading" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="main_heading"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Main Heading
           </Label>
           <Input
@@ -148,7 +151,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="sub_heading" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="sub_heading"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Sub Heading
           </Label>
           <Input
@@ -159,7 +165,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="service_values_one" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="service_values_one"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Bullet Point 1
           </Label>
           <Input
@@ -170,7 +179,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="service_values_two" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="service_values_two"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Bullet Point 2
           </Label>
           <Input
@@ -181,7 +193,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="service_values_three" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="service_values_three"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Bullet Point 3
           </Label>
           <Input
@@ -192,7 +207,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="formData_topbar" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="formData_topbar"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Form Discount Heading
           </Label>
           <Input
@@ -203,7 +221,10 @@ export const HeroSectionModal = ({
           />
         </div>
         <div className="">
-          <Label htmlFor="formData_heading" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="formData_heading"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Form Heading
           </Label>
           <Input
@@ -215,7 +236,10 @@ export const HeroSectionModal = ({
         </div>
 
         <div className="">
-          <Label htmlFor="formData_button" className="text-right text-gray-400 text-sm pl-2">
+          <Label
+            htmlFor="formData_button"
+            className="text-right text-gray-400 text-sm pl-2"
+          >
             Form Button
           </Label>
           <Input
