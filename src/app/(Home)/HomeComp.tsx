@@ -16,6 +16,7 @@ import TrustReview from "./_components/TrustReview";
 import WhyUs from "./_components/WhyUs";
 import WorkFlow from "./_components/WorkFlow";
 import SkeletonComp from "../components/common/SkeletonComp";
+import Loader from "../components/common/Loader";
 
 const HomeComp = () => {
   const [heroSectionData, setHeroSectionData] = useState<any>();
@@ -60,40 +61,40 @@ const HomeComp = () => {
 
   return (
     <>
-      <div>
-        <HeroSection
-          fetchHomePageData={fetchHomePageData}
-          heroSectionData={heroSectionData}
-          setHeroSectionData={setHeroSectionData}
-          chatNowBtn={heroSectionData?.button_one}
-          chatOnWhatsapp={heroSectionData?.button_two}
-        />
-        {!workFlowData ? (
-          <SkeletonComp />
-        ) : (
+      {!heroSectionData ? (
+        <Loader />
+      ) : (
+        <div>
+          <HeroSection
+            fetchHomePageData={fetchHomePageData}
+            heroSectionData={heroSectionData}
+            setHeroSectionData={setHeroSectionData}
+            chatNowBtn={heroSectionData?.button_one}
+            chatOnWhatsapp={heroSectionData?.button_two}
+          />
+
           <WorkFlow
             workFlowData={workFlowData}
             setWorkFlowData={setWorkFlowData}
             chatNowBtn={heroSectionData?.button_one}
             chatOnWhatsapp={heroSectionData?.button_two}
           />
-        )}
-
-        <AboutContent aboutContentData={aboutContentData} />
-        <FormContent
-          formContentData={formContentData}
-          chatNowBtn={heroSectionData?.button_one}
-          chatOnWhatsapp={heroSectionData?.button_two}
-        />
-        <LongContent longContent={longContent} />
-        <WhyUs whyUsData={whyUsData} />
-        <Faq faqData={faqData} />
-        <SmallDivider smallDividerData={smallDividerData} />
-        <TrustReview trustReviewData={trustReviewData} />
-        <Rating ratingData={ratingData} />
-        <Academic academicData={academicData} />
-        <Sample sampleData={sampleData} />
-      </div>
+          <AboutContent aboutContentData={aboutContentData} />
+          <FormContent
+            formContentData={formContentData}
+            chatNowBtn={heroSectionData?.button_one}
+            chatOnWhatsapp={heroSectionData?.button_two}
+          />
+          <LongContent longContent={longContent} />
+          <WhyUs whyUsData={whyUsData} />
+          <Faq faqData={faqData} />
+          <SmallDivider smallDividerData={smallDividerData} />
+          <TrustReview trustReviewData={trustReviewData} />
+          <Rating ratingData={ratingData} />
+          <Academic academicData={academicData} />
+          <Sample sampleData={sampleData} />
+        </div>
+      )}
     </>
   );
 };

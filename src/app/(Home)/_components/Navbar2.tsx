@@ -57,17 +57,20 @@ export default function Navbar2() {
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <Image
                 className="block dark:hidden"
-                src={"/assets/weblogo.png"}
+                src={"/assets/weblogo.svg"}
                 width={80}
                 height={80}
                 alt="logo"
+                loading="eager"
               />
               <Image
                 className="dark:block hidden"
-                src={"/assets/weblogodark.png"}
+                src={"/assets/weblogodark.svg"}
                 width={80}
                 height={80}
                 alt="logo"
+                loading="eager"
+
               />
               <span className="hidden font-bold xl:inline-block">
                 {process.env.NEXT_PUBLIC_WEBSITE_NAME}

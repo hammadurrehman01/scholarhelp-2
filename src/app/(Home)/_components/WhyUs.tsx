@@ -5,8 +5,8 @@ import "swiper/css";
 import Image from "next/image";
 import { Autoplay, Navigation } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css"s;
 
 const Slide = ({ title, description, image, index, ref }: any) => (
   <div
@@ -99,13 +99,13 @@ const WhyUs = ({ whyUsData }: Props) => {
     threshold: 0.1,
   });
 
-  useEffect(() => {
-    Aos.init({
-      duration: 800,
-      disable: "mobile",
-      offset: 100,
-    });
-  }, [inView]);
+  // useEffect(() => {
+  //   Aos.init({
+  //     duration: 800,
+  //     disable: "mobile",
+  //     offset: 100,
+  //   });
+  // }, [inView]);
   return (
     <div ref={ref} className="mx-auto max-w-screen-xl mt-10 p-3 lg:p-6">
       <h2 className="text-center text-xl md:text-4xl font-bold dark:text-zinc-100 text-violet-950">

@@ -12,7 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { updateData } from "@/service/service";
 import { useFormik } from "formik";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface Props {
   formContentData: any;
@@ -24,6 +26,7 @@ export const FormContentModal = ({
   setFormContentData,
 }: Props) => {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialValues = {
     accordion_head_one: formContentData?.accordion_head_one || "",
@@ -60,16 +63,20 @@ export const FormContentModal = ({
       ];
 
       try {
+        setIsLoading(true);
         const response = await updateData(updatedContentData);
 
         if (response.status === 200) {
           setModal(false);
           setFormContentData(response.data.data["4"]);
+          toast.success("Content updated successfully")
         } else {
           console.warn("Unexpected response status:", response.status);
         }
       } catch (error) {
         console.error("Error updating data:", error);
+      } finally {
+        setIsLoading(false);
       }
     },
   });
@@ -126,7 +133,16 @@ export const FormContentModal = ({
         </div>
       </div>
       <DialogFooter>
-        <Button type="submit">Save changes</Button>
+        <Button type="submit">
+          {isLoading ? (
+            <>
+              <Loader2 />
+              <span> Loading...</span>
+            </>
+          ) : (
+            "Save changes"
+          )}
+        </Button>
       </DialogFooter>
     </form>
   );

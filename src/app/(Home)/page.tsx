@@ -1,4 +1,4 @@
-import "aos/dist/aos.css";
+// import "aos/dist/aos.css";
 import { Metadata } from "next";
 import HomeComp from "./HomeComp";
 

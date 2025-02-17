@@ -12,7 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { updateData } from "@/service/service";
 import { useFormik } from "formik";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface Props {
   heroSectionData: any;
@@ -24,6 +26,7 @@ export const HeroSectionModal = ({
   setHeroSectionData,
 }: Props) => {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialValues = {
     main_heading: heroSectionData?.main_heading || "",
@@ -107,6 +110,7 @@ export const HeroSectionModal = ({
         if (response.status === 200) {
           setModal(false);
           setHeroSectionData(response.data.data["1"]);
+          toast.success("Content updated successfully");
         } else {
           console.warn("Unexpected response status:", response.status);
         }
@@ -252,7 +256,16 @@ export const HeroSectionModal = ({
         {/* Repeat for other inputs like subheading, service values, form tabs, etc. */}
       </div>
       <DialogFooter>
-        <Button type="submit">Save changes</Button>
+        <Button type="submit">
+          {isLoading ? (
+            <>
+              <Loader2 />
+              <span> Loading...</span>
+            </>
+          ) : (
+            "Save changes"
+          )}
+        </Button>
       </DialogFooter>
     </form>
   );

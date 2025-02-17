@@ -12,7 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { updateData } from "@/service/service";
 import { useFormik } from "formik";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface Props {
   aboutContentData: any;
@@ -24,6 +26,7 @@ export const AboutContentModal = ({
   setAboutContentData,
 }: Props) => {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialValues = {
     heading: aboutContentData?.heading || "",
@@ -53,6 +56,7 @@ export const AboutContentModal = ({
         if (response.status === 200) {
           setModal(false);
           setAboutContentData(response.data.data["3"]);
+          toast.success("Content updated successfully");
         } else {
           console.warn("Unexpected response status:", response.status);
         }
@@ -89,7 +93,16 @@ export const AboutContentModal = ({
         </div>
       </div>
       <DialogFooter>
-        <Button type="submit">Save changes</Button>
+        <Button type="submit">
+          {isLoading ? (
+            <>
+              <Loader2 />
+              <span> Loading...</span>
+            </>
+          ) : (
+            "Save changes"
+          )}
+        </Button>
       </DialogFooter>
     </form>
   );

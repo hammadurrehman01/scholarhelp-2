@@ -1,8 +1,8 @@
 "use client";
 import SkeletonComp from "@/app/components/common/SkeletonComp";
 import SkeletonForm from "@/app/components/common/SkeletonForm";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -27,13 +27,13 @@ export const HeroSection = ({
     threshold: 0.1,
   });
 
-  useEffect(() => {
-    Aos.init({
-      duration: 800,
-      disable: "mobile",
-      offset: 100,
-    });
-  }, [inView]);
+  // useEffect(() => {
+  //   Aos.init({
+  //     duration: 800,
+  //     disable: "mobile",
+  //     offset: 100,
+  //   });
+  // }, [inView]);
 
   return (
     <div
@@ -42,9 +42,7 @@ export const HeroSection = ({
     >
       <div className="grid lg:grid-cols-2 grid-cols-1 mx-auto max-w-screen-xl py-10 ">
         <div className="py-20 px-5 md:pt-36">
-          {!heroSectionData ? (
-            <SkeletonComp />
-          ) : (
+         
             <>
               <h1 className=" text-center py-2 lg:text-left dark:text-zinc-100 text-zinc-900 text-lg sm:text-4xl font-extrabold ">
                 {heroSectionData?.main_heading}
@@ -95,7 +93,7 @@ export const HeroSection = ({
                 chatOnWhatsapp={chatOnWhatsapp}
               />
             </>
-          )}
+       
         </div>
 
         <div className="pb-5 px-5 md:pt-24">

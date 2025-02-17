@@ -56,11 +56,6 @@ function WorkFlow({
 
   return (
     <div ref={ref} data-aos="zoom-in" className="mx-auto max-w-screen-xl mt-10">
-      {/* <WorkFlowModal
-        workFlowData={workFlowData}
-        setWorkFlowData={setWorkFlowData}
-      /> */}
-
       <h2 className="text-center text-xl md:text-4xl font-extrabold dark:text-zinc-100 text-violet-950 px-4">
         {" "}
         {workFlowData?.main_heading}

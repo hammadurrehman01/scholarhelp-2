@@ -35,7 +35,6 @@ export async function GET(req: Request) {
       );
     }
 
-    // Organize the retrieved data by section
     const data = rows.reduce((acc: any, row: any) => {
       const sectionId = row.section_id;
 

@@ -37,7 +37,7 @@ const ReviewCard = ({ name, text }: { name: string; text: string }) => (
         <div className="flex items-center bg-white rounded-full w-12 h-12 overflow-hidden">
           <Image
             className="object-cover"
-            src={"/imgs/taking-logo-2.png"}
+            src={"/assets/weblogo.svg"}
             alt="rating"
             width={44}
             height={64}
