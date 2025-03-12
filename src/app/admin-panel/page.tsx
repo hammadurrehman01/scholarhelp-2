@@ -22,13 +22,14 @@ import { HeroSectionModal } from "../components/common/modals/HeroSectionModal";
 import { WorkFlowModal } from "../components/common/modals/WorkFlowModal";
 import { AboutContentModal } from "../components/common/modals/AboutContentModal";
 import { FormContentModal } from "../components/common/modals/FormContentModal";
+import { LongContentModal } from "../components/common/modals/LongContentModal";
 
 export default function Page() {
   const [heroSectionData, setHeroSectionData] = useState<any>();
   const [workFlowData, setWorkFlowData] = useState<any>();
   const [aboutContentData, setAboutContentData] = useState<any>();
   const [formContentData, setFormContentData] = useState<any>();
-  const [longContent, setLongContent] = useState<any>();
+  const [longContentData, setLongContentData] = useState<any>();
   const [whyUsData, setWhyUsData] = useState<any>();
   const [faqData, setFaqData] = useState<any>();
   const [smallDividerData, setSmallDividerData] = useState<any>();
@@ -46,7 +47,7 @@ export default function Page() {
         setWorkFlowData(response.data.data["2"]);
         setAboutContentData(response.data.data["3"]);
         setFormContentData(response.data.data["4"]);
-        setLongContent(response.data.data["5"]);
+        setLongContentData(response.data.data["5"]);
         setWhyUsData(response.data.data["6"]);
         setFaqData(response.data.data["7"]);
         setSmallDividerData(response.data.data["8"]);
@@ -153,6 +154,23 @@ export default function Page() {
                   <FormContentModal
                     formContentData={formContentData}
                     setFormContentData={setFormContentData}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!longContentData && longContentData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                LongContent
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <LongContentModal
+                    longContentData={longContentData}
+                    setLongContentData={setLongContentData}
                   />
                 </div>
               </div>

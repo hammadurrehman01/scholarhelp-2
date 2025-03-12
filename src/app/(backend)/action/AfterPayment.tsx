@@ -1,7 +1,7 @@
-"use server"
+"use server";
 import nodemailer from "nodemailer";
-import fs from 'fs'
-import * as fsPromises from 'fs/promises';
+import fs from "fs";
+import * as fsPromises from "fs/promises";
 import { join } from "path";
 
 interface EmailData {
@@ -19,42 +19,39 @@ interface EmailData {
   referencing: string;
   pricePerPage: number;
   totalPrice: number;
-  file: FileList|null
+  file: FileList | null;
   name: string;
   email: string;
   phone: string;
   country: string;
   notes: string;
-
 }
 
 export const AfterPayment = async (formData: FormData) => {
-
-    // Extracting variables separately
-    const topic = formData.get("topic") as string;
-    const selectedValue = Number(formData.get("selectedValue"));
-    const wordCount = Number(formData.get("wordCount"));
-    const level = formData.get("level") as string;
-    const paper = formData.get("paper") as string;
-    const quality = formData.get("quality") as string;
-    const deadline = formData.get("deadline") as string;
-    const subject = formData.get("subject") as string;
-    const language = formData.get("language") as string;
-    const source = Number(formData.get("source"));
-    const format = formData.get("format") as string;
-    const referencing = formData.get("referencing") as string;
-    const pricePerPage = Number(formData.get("pricePerPage"));
-    const totalPrice = Number(formData.get("totalPrice"));
-    const file = formData.get("file") as FileList | null;
-    const name = formData.get("name") as string;
-    const phone= formData.get("phone") as string;
-    const country= formData.get("country") as string;
-    const email= formData.get("email") as string;
-    const notes= formData.get("notes") as string;
-    const symbol = formData.get("symbol") as string;
-    const ppp = formData.get("ppp") as string;
-    const unit = formData.get("unit") as string;
-
+  // Extracting variables separately
+  const topic = formData.get("topic") as string;
+  const selectedValue = Number(formData.get("selectedValue"));
+  const wordCount = Number(formData.get("wordCount"));
+  const level = formData.get("level") as string;
+  const paper = formData.get("paper") as string;
+  const quality = formData.get("quality") as string;
+  const deadline = formData.get("deadline") as string;
+  const subject = formData.get("subject") as string;
+  const language = formData.get("language") as string;
+  const source = Number(formData.get("source"));
+  const format = formData.get("format") as string;
+  const referencing = formData.get("referencing") as string;
+  const pricePerPage = Number(formData.get("pricePerPage"));
+  const totalPrice = Number(formData.get("totalPrice"));
+  const file = formData.get("file") as FileList | null;
+  const name = formData.get("name") as string;
+  const phone = formData.get("phone") as string;
+  const country = formData.get("country") as string;
+  const email = formData.get("email") as string;
+  const notes = formData.get("notes") as string;
+  const symbol = formData.get("symbol") as string;
+  const ppp = formData.get("ppp") as string;
+  const unit = formData.get("unit") as string;
 
   ///// Check for an Attachment folder /////
   const path = "./Attachments";
@@ -68,7 +65,7 @@ export const AfterPayment = async (formData: FormData) => {
   }
 
   // Parse form data
-  const filer: any = file
+  const filer: any = file;
 
   const attachments = [];
   if (filer?.length > 0) {
@@ -81,7 +78,7 @@ export const AfterPayment = async (formData: FormData) => {
       const filePath = join(path, filenameWithDate);
 
       try {
-        await fsPromises.writeFile(filePath, buffer);
+        await fsPromises.writeFile(filePath, buffer as any);
         console.log(`File saved: ${filePath}`);
         attachments.push({
           filename: `${i + 1}_${file.name}`,
@@ -95,29 +92,28 @@ export const AfterPayment = async (formData: FormData) => {
     console.log("No files to upload.");
   }
 
-
   const transporter = nodemailer.createTransport({
     host: process.env.HOST as string,
     port: process.env.PORTS as unknown as number,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: process.env.USER, // your SMTP username
-        pass: process.env.PASSWORD // your SMTP password
-    }
+      user: process.env.USER, // your SMTP username
+      pass: process.env.PASSWORD, // your SMTP password
+    },
   });
 
   const clientPaymentMailOptions = {
     from: process.env.MAILFROM,
     to: process.env.MAILTO,
     subject: `New Order from ${process.env.NEXT_PUBLIC_NAME}`,
-    text: 'Thank You For Order',
+    text: "Thank You For Order",
     html: `
 <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f0f0f0; ">
     <div style="background-position: center;background-size: cover; width: 100%; max-width: 600px; border-radius: 20px; margin: 0 auto; background-color: #fffdfa; padding: 20px;">
     
         <div style="text-align: center;">
             <div style="display: inline-block; padding: 5px;">
-           <img src="https://muhammadumer.sirv.com/edu-logo.png" alt="" style="display: inline-block; vertical-align: middle; height: 50px; width: auto;">
+      <img src="https://muhammadumer.sirv.com/edu-logo.png" alt="" style="display: inline-block; vertical-align: middle; height: 50px; width: auto;">
          <p style="display: inline-block; vertical-align: middle; margin: 0; font-size: x-large;  font-weight: 700; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
                  Taking My Classes Online
                 </p>
@@ -126,7 +122,7 @@ export const AfterPayment = async (formData: FormData) => {
     
       <p style="font-size: 22px;  line-height: 1.5; text-align: center; font-weight: 700;">
         Thank You For Your Order ${name} <br></p>
-
+ 
         <div style="text-align: center;">
           <a href="" style="display: inline-block; padding: 12px; background-color: #ff8615; color: whitesmoke;  text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 25px; margin: 5px 0; text-align: center; vertical-align: middle;">
             Payment Recieved
@@ -334,11 +330,9 @@ export const AfterPayment = async (formData: FormData) => {
   try {
     const info2 = await transporter.sendMail(clientPaymentMailOptions);
     console.log("client Email sent:", info2);
-    return { success: true, info: info2 }; 
+    return { success: true, info: info2 };
   } catch (error) {
     console.error("Error sending email:", error);
     return { success: false, error: "Error sending order" };
   }
 };
-
-

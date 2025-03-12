@@ -10,15 +10,12 @@ import { useInView } from "react-intersection-observer";
 import BannerForm from "./BannerForm";
 interface ParentProps {
   heroSectionData: any;
-  setHeroSectionData: any;
   chatNowBtn: string;
   chatOnWhatsapp: string;
-  fetchHomePageData: any;
 }
 
 export const HeroSection = ({
   heroSectionData,
-  setHeroSectionData,
   chatNowBtn,
   chatOnWhatsapp,
 }: ParentProps) => {

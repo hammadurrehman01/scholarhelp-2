@@ -13,14 +13,12 @@ interface Props {
   workFlowData: any;
   chatNowBtn: string;
   chatOnWhatsapp: string;
-  setWorkFlowData: any;
 }
 
 function WorkFlow({
   workFlowData,
   chatNowBtn,
   chatOnWhatsapp,
-  setWorkFlowData,
 }: Props) {
   const [activeTab, setActiveTab] = useState("1");
 
