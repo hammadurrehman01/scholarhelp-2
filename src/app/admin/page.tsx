@@ -27,6 +27,9 @@ import { WhyUsModal } from "../components/common/modals/WhyUsModal";
 import { FaqModal } from "../components/common/modals/FaqModal";
 import { SmallDividerModal } from "../components/common/modals/SmallDividerModal";
 import { TrustReviewModal } from "../components/common/modals/TrustReviewModal";
+import { RatingModal } from "../components/common/modals/RatingModal";
+import { AcademicModal } from "../components/common/modals/AcademicModal";
+import { SampleModal } from "../components/common/modals/SampleModal";
 
 export default function Page() {
   const [heroSectionData, setHeroSectionData] = useState<any>();
@@ -259,6 +262,60 @@ export default function Page() {
                   <TrustReviewModal
                     trustReviewData={trustReviewData}
                     setTrustReviewData={setTrustReviewData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!ratingData && ratingData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Ratings
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <RatingModal
+                    ratingData={ratingData}
+                    setRatingData={setRatingData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!academicData && academicData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Academic
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <AcademicModal
+                    academicData={academicData}
+                    setAcademicData={setAcademicData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!sampleData && sampleData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Sample
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <SampleModal
+                    sampleData={sampleData}
+                    setSampleData={setSampleData}
                     token={token}
                   />
                 </div>

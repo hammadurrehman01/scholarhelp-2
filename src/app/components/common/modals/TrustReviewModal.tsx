@@ -115,7 +115,7 @@ export const TrustReviewModal = ({
 
         if (response.status === 200) {
           setModal(false);
-          setTrustReviewData(response.data.data["8"]);
+          setTrustReviewData(response.data.data["9"]);
           toast.success("Content updated successfully");
         } else {
           console.warn("Unexpected response status:", response.status);
