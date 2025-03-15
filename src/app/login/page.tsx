@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import AuthenticatedRoute from "@/middlewares/AuthenticatedRoute ";
+import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -14,40 +15,48 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: any) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
-    if (email === "" && password === "") {
-      toast.error("Please enter the inputs");
-      return;
-    }
+
     setLoading(true);
-    const user: any = localStorage.getItem("user");
-    if (user) {
-      const parsedUser = JSON.parse(user);
-      if (email === "admin@gmail.com" && password === parsedUser.password) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ email, password, isLoggedIn: true })
-        );
-        successLogin();
+
+    try {
+      const response = await axios.post("/api/login", {
+        email,
+        password,
+      });
+
+      const data = response.data;
+
+      if (data.message === "Login successful") {
+        successLogin(data.message, data.token);
       } else {
-        toast.error("Credentials Incorrect");
-        setLoading(false);
-        setEmail("");
-        setPassword("");
+        errorLogin(data.message);
       }
-    } else {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ email, password, isLoggedIn: true })
-      );
-      successLogin();
+    } catch (error: any) {
+      if (error.response) {
+        const errorMessage =
+          error.response.data?.message || "Something went wrong";
+        toast.error(errorMessage);
+        console.log(errorMessage);
+      } else {
+        toast.error(error.message);
+        console.log(error.message);
+      }
     }
   };
 
-  const successLogin = () => {
-    toast.success("You are logged in!");
-    router.push("/admin-panel");
+  const successLogin = (message: string, token: string) => {
+    toast.success(message);
+    router.push("/admin");
+    localStorage.setItem("adminToken", token);
+    setLoading(false);
+    setEmail("");
+    setPassword("");
+  };
+
+  const errorLogin = (message: string) => {
+    toast.error(message);
     setLoading(false);
     setEmail("");
     setPassword("");

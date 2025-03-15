@@ -19,11 +19,14 @@ import { toast } from "react-toastify";
 interface Props {
   formContentData: any;
   setFormContentData: any;
+  token:string;
+
 }
 
 export const FormContentModal = ({
   formContentData,
   setFormContentData,
+  token
 }: Props) => {
   const [modal, setModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -64,7 +67,7 @@ export const FormContentModal = ({
 
       try {
         setIsLoading(true);
-        const response = await updateData(updatedContentData);
+        const response = await updateData(updatedContentData, token);
 
         if (response.status === 200) {
           setModal(false);

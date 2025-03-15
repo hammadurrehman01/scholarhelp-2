@@ -12,11 +12,14 @@ import { Tiptap } from "../../TipTap";
 interface Props {
   longContentData: any;
   setLongContentData: any;
+  token:string;
+
 }
 
 export const LongContentModal = ({
   longContentData,
   setLongContentData,
+  token
 }: Props) => {
   const [modal, setModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +49,7 @@ export const LongContentModal = ({
 
       try {
         setIsLoading(true);
-        const response = await updateData(updatedContentData);
+        const response = await updateData(updatedContentData, token);
 
         if (response.status === 200) {
           setModal(false);

@@ -23,6 +23,10 @@ import { WorkFlowModal } from "../components/common/modals/WorkFlowModal";
 import { AboutContentModal } from "../components/common/modals/AboutContentModal";
 import { FormContentModal } from "../components/common/modals/FormContentModal";
 import { LongContentModal } from "../components/common/modals/LongContentModal";
+import { WhyUsModal } from "../components/common/modals/WhyUsModal";
+import { FaqModal } from "../components/common/modals/FaqModal";
+import { SmallDividerModal } from "../components/common/modals/SmallDividerModal";
+import { TrustReviewModal } from "../components/common/modals/TrustReviewModal";
 
 export default function Page() {
   const [heroSectionData, setHeroSectionData] = useState<any>();
@@ -37,6 +41,14 @@ export default function Page() {
   const [ratingData, setRatingData] = useState<any>();
   const [academicData, setAcademicData] = useState<any>();
   const [sampleData, setSampleData] = useState<any>();
+  const [token, setToken] = useState<string>("");
+
+  useEffect(() => {
+    const authToken = localStorage.getItem("adminToken");
+    if (authToken) {
+      setToken(authToken);
+    }
+  }, []);
 
   const fetchHomePageData = async () => {
     try {
@@ -100,6 +112,7 @@ export default function Page() {
                   <HeroSectionModal
                     heroSectionData={heroSectionData}
                     setHeroSectionData={setHeroSectionData}
+                    token={token}
                   />
                 </div>
               </div>
@@ -118,6 +131,7 @@ export default function Page() {
                   <WorkFlowModal
                     workFlowData={workFlowData}
                     setWorkFlowData={setWorkFlowData}
+                    token={token}
                   />
                 </div>
               </div>
@@ -136,6 +150,7 @@ export default function Page() {
                   <AboutContentModal
                     aboutContentData={aboutContentData}
                     setAboutContentData={setAboutContentData}
+                    token={token}
                   />
                 </div>
               </div>
@@ -154,6 +169,7 @@ export default function Page() {
                   <FormContentModal
                     formContentData={formContentData}
                     setFormContentData={setFormContentData}
+                    token={token}
                   />
                 </div>
               </div>
@@ -171,6 +187,79 @@ export default function Page() {
                   <LongContentModal
                     longContentData={longContentData}
                     setLongContentData={setLongContentData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!whyUsData && whyUsData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Why Choose Us
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <WhyUsModal
+                    whyUsData={whyUsData}
+                    setWhyUsData={setWhyUsData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!faqData && faqData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Frequently Asked Questions
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <FaqModal
+                    faqData={faqData}
+                    setFaqData={setFaqData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!smallDividerData && smallDividerData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Small Divider
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <SmallDividerModal
+                    smallDividerData={smallDividerData}
+                    setSmallDividerData={setSmallDividerData}
+                    token={token}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+          <>
+            {!trustReviewData && trustReviewData?.length === 0 ? (
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              </div>
+            ) : (
+              <div className="px-12 font-bold text-xl pb-6">
+                Trust Review
+                <div className="border border-white-1 p-6 rounded-lg mt-3">
+                  <TrustReviewModal
+                    trustReviewData={trustReviewData}
+                    setTrustReviewData={setTrustReviewData}
+                    token={token}
                   />
                 </div>
               </div>

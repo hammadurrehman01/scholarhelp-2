@@ -1,48 +1,73 @@
 import { dbConnection } from "@/db/dbConnect";
+import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 export async function PUT(req: Request) {
   try {
-    // Parse the incoming request data
-    const data = await req.json();
+    const authHeader = req.headers.get("authorization");
 
-    // Establish the database connection
-    const db = await dbConnection();
-
-    // Helper function to update the content table
-    async function updateContent(sectionId: number, contentKey: string, contentValue: any) {
-
-      const query = `UPDATE content SET content_value = ? WHERE section_id = ? AND content_key = ?`;
-      await db.execute(query, [contentValue, sectionId, contentKey]);
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return NextResponse.json(
+        { message: "Unauthorized: Token is required" },
+        { status: 401 }
+      );
     }
 
-    // Object to hold the organized response data
-    const updatedData: Record<number, any> = {};
+    const token = authHeader.split(" ")[1];
 
-    // Iterate over the array data directly
-    for (const item of data) {
-      const { section_id, content_key, content_value } = item;
+    const isVerified = jwt.verify(token, process.env.JWT_SECRET!);
 
-      // Perform the update
-      await updateContent(section_id, content_key, content_value);
+    if (isVerified) {
+      // Parse the incoming request data
+      const data = await req.json();
 
-      // Organize data into sections by sectionId
-      if (!updatedData[section_id]) {
-        updatedData[section_id] = {};
+      // Establish the database connection
+      const db = await dbConnection();
+
+      // Helper function to update the content table
+      async function updateContent(
+        sectionId: number,
+        contentKey: string,
+        contentValue: any
+      ) {
+        const query = `UPDATE content SET content_value = ? WHERE section_id = ? AND content_key = ?`;
+        await db.execute(query, [contentValue, sectionId, contentKey]);
       }
-      updatedData[section_id][content_key] = content_value;
+
+      // Object to hold the organized response data
+      const updatedData: Record<number, any> = {};
+
+      // Iterate over the array data directly
+      for (const item of data) {
+        const { section_id, content_key, content_value } = item;
+
+        // Perform the update
+        await updateContent(section_id, content_key, content_value);
+
+        // Organize data into sections by sectionId
+        if (!updatedData[section_id]) {
+          updatedData[section_id] = {};
+        }
+        updatedData[section_id][content_key] = content_value;
+      }
+
+      // Respond with success and the structured updated data
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "Database content updated successfully",
+          data: updatedData,
+        }),
+        {
+          status: 200,
+        }
+      );
+    } else {
+      return NextResponse.json(
+        { message: "Unauthorized: Invalid token" },
+        { status: 403 }
+      );
     }
-
-    // Respond with success and the structured updated data
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: "Database content updated successfully",
-        data: updatedData,
-      }),
-      {
-        status: 200,
-      }
-    );
   } catch (error: any) {
     console.error("Error updating data:", error);
     return new Response(

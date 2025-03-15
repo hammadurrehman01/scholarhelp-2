@@ -19,9 +19,10 @@ import { toast } from "react-toastify";
 interface Props {
   workFlowData: any;
   setWorkFlowData: any;
+  token: string;
 }
 
-export const WorkFlowModal = ({ workFlowData, setWorkFlowData }: Props) => {
+export const WorkFlowModal = ({ workFlowData, setWorkFlowData, token }: Props) => {
   const [modal, setModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -84,7 +85,7 @@ export const WorkFlowModal = ({ workFlowData, setWorkFlowData }: Props) => {
       ];
 
       try {
-        const response = await updateData(updatedContentData);
+        const response = await updateData(updatedContentData, token);
 
         if (response.status === 200) {
           setModal(false);
